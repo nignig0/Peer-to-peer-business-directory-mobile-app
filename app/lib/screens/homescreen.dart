@@ -34,14 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
-        appBar: GenericAppBar(pageName: 'HOME', isHomePage: true),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 10),
+    return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
+      appBar: GenericAppBar(pageName: 'HOME', isHomePage: true),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 20, right: 10),
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -50,9 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.white, 
                     fontSize: 15,
                   ),),
-    
+                
                   const SizedBox(height: 10),
-    
+                
                   SizedBox(
                     width: MediaQuery.of(context).size.width,
                     height: 100,
@@ -87,15 +87,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                     ),
                   ),
-    
+                
                   SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-    
+                
                   CarouselSlider.builder(itemCount: items.length,
                    itemBuilder: (context, index, pageViewIndex){
                     return Column(
                       children: [
                         CircleAvatar(
-                          radius: 150,
+                          radius: 130,
                           backgroundColor: items[index].color,
                         ), 
                         Text(items[index].name, textAlign: TextAlign.center,
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     viewportFraction: 0.7,
                     initialPage:  0,
                   )),
-    
+                
                  
                   //Center(
                     //child: Text('Work in Progress!', 
@@ -128,18 +128,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       //fontSize: 40
                     //))
                   //),
-    
+                
                 ],
               ),
             ),
-             Expanded(
-                    child: Align(
-                      alignment: Alignment.bottomCenter,
-                      child: BottomNavBar(selectedLabel: 'HOME',)
-                    ),
-                  )
-          ],
-        ),
+          ),
+          const Spacer(),
+           BottomNavBar(selectedLabel: 'HOME',)
+        ],
       ),
     );
   }

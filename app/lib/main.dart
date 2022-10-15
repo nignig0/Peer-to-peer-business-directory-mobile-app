@@ -1,3 +1,4 @@
+import 'package:app/screens/LoginScreen.dart';
 import 'package:app/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,7 +24,10 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFFdc613e),
         fontFamily: 'MonumentExtended'
       ),
-      home: HomeScreen()
+      home: LoginScreen(), 
+      routes: {
+        '/home': (_)=> const HomeScreen()
+      },
     );
   }
 }
